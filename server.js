@@ -21,10 +21,11 @@ app.post("/upload", multer({storage: storage}).single('file'), async (req, res) 
     await database.insert("./files/" + req.file.originalname);
     req.json({result: "ok"});
 })
-app.get('/immages', async (req, res) => {
-    const list=await database.select();
+app.get('/get', async (req, res) => {
+    const list = await database.select();
     res.json(list);
 });
+
 app.post("/delete/:id", async (req, res) => {
     await database.delete(req.params.id);
     req.json({result: "ok"});
