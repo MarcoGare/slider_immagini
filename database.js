@@ -22,17 +22,27 @@ const executeQuery = (sql) => {
 
 const database = {
     createTable: () => {
-        return executeQuery(`
-        CREATE TABLE IF NOT EXISTS images
+        return executeQuery(
+        `CREATE TABLE IF NOT EXISTS images
         ( id INT PRIMARY KEY AUTO_INCREMENT,
-            name VARCHAR(255) NOT NULL)
-        `);
+            url VARCHAR(255) NOT NULL)`
+        );
     },
-    insert: (name)=>{
-        let sql = `
-        INSERT INTO images (name) VALUES ('$NAME')
-        `;
-        sql=sql.replace("$NAME", name);
+    insert: (url) => {
+        let sql = `INSERT INTO images (url) VALUES ('$URL')`;
+        sql = sql.replace("$URL", url);
         return executeQuery(sql); 
-    }
-}
+    },
+    select: () => {
+        const sql = `SELECT id, url FROM images`;
+        return executeQuery(sql);
+    },
+    delete: (id) => {
+        let sql = `DELETE FROM images WHERE id=$ID`;
+        sql = sql.replace('$ID', id);
+        return executeQuery(sql);
+    },
+};
+
+
+module.exports = database;

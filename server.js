@@ -31,5 +31,5 @@ app.post("/delete/:id", async (req, res) => {
     }) 
     const server=http.createServer(app);
 server.listen(5600, () => {
-    console.log("- server running");
+    console.log("- server in esecuzione");
 });
