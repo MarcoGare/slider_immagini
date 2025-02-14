@@ -1,9 +1,9 @@
 {
-    "host": "",
-    "user": "",
-    "password": "",
-    "database": "",
-    "port": "",
-    "ca": ""
+    "host": "todo-8247411-todo-65e7.e.aivencloud.com",
+    "user": "avnadmin",
+    "password": "AVNS_f1rbxdeEH73U70dZlPu",
+    "database": "defaultdb",
+    "port": "19695",
+    "ca": "/ca.pem"
     
 }
