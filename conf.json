@@ -2,8 +2,8 @@
     "host": "",
     "user": "",
     "password": "",
-    "database": "defaultdb",
-    "port": 19695,
-    "ca": "ca.pem"
+    "database": "",
+    "port": "",
+    "ca": ""
     
 }
