@@ -44,5 +44,12 @@ const database = {
     },
 };
 
+truncate: () => {
+    const sql = `
+    TRUNCATE TABLE images"
+    `;
+    return executeQuery(sql);
+}
+
 
 module.exports = database;
