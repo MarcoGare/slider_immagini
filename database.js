@@ -20,18 +20,28 @@ const database = {
         return executeQuery(`
             CREATE TABLE IF NOT EXISTS images (
                 id INT PRIMARY KEY AUTO_INCREMENT,
-                url VARCHAR(255) NOT NULL
+                name VARCHAR(255) NOT NULL
             )
         `);
     },
     insert: (url) => {
-        return executeQuery(`INSERT INTO images (url) VALUES (?)`, [url]);
+        let sql=
+       `INSERT INTO images (name) VALUES ('$NAME')`;
+       sql = sql.replace('$NAME',name);
+       return executeQuery(sql);
     },
     select: () => {
-        return executeQuery(`SELECT id, url FROM images`);
+        const sql =
+         `SELECT id, name FROM images`;
+         return executeQuery
     },
     delete: (id) => {
-        return executeQuery(`DELETE FROM images WHERE id = ?`, [id]);
+        let sql=
+       `DELETE FROM images
+       WHERE ID=$ID`
+       ;
+       sql = sql.replace('$id',id);
+       return executeQuery(sql);
     }
 };
 
