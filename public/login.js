@@ -56,19 +56,12 @@ loginButton.onclick = () => {
     if (result) {
       sessionStorage.setItem("Logged", "true");
       showPrivateSection();
-    } else {
-      alert("Login fallito, riprova.");
-    }
+    } 
   });
 };
 
 registerButton.onclick = () => {
   register(inputName.value, inputPassword.value).then((result) => {
-    if (result) {
-      alert("Registrazione completata! Ora puoi fare il login.");
-    } else {
-      alert("Errore nella registrazione.");
-    }
   });
 };
 
