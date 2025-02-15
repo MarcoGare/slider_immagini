@@ -2,15 +2,28 @@ const creazioneMiddleware = () => {
     return {
         load: async () => {
             const response = await fetch("/images");
-            return await response.json();
+            const json = await response.json();
+            return await json;
         },
         delete: async (id) => {
-            await fetch(`/delete/${id}`, { method: "DELETE" });
+            const response = await fetch(`/delete/` = id, 
+            { method: "DELETE" });
         },
         upload: async (inputFile) => {
             const formData = new FormData();
             formData.append("file", inputFile.files[0]);
-            await fetch("/upload", { method: "POST", body: formData });
+            const body = formData;
+            const fetchOptions = { 
+                method: "POST",
+                body: body 
+            };
+            try{
+                const res = await fetch("/upload", fetchOptions);
+                const data = await res.json();
+                
+            } catch (e){
+                console.log(e)
+            }
         }
     };
 };
