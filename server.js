@@ -17,11 +17,11 @@ database.createTable();
 const upload = multer({ storage: storage}).single('file');
 app.use("/", express.static(path.join(__dirname, "public")));
 app.use("/files", express.static(path.join(__dirname, "files")));
-app.post("/upload", multer({storage: storage}).single('file'), async (req, res) => {
+app.post("/upload", multer({storage: storage}).single('files'), async (req, res) => {
     await database.insert("./files/" + req.file.originalname);
     req.json({result: "ok"});
 })
-app.get('/get', async (req, res) => {
+app.get('/images', async (req, res) => {
     const list = await database.select();
     res.json(list);
 });
