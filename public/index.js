@@ -6,8 +6,10 @@ const creazioneMiddleware = () => {
             return await json;
         },
         delete: async (id) => {
-            const response = await fetch(`/delete/` = id, 
+            const response = await fetch(`/delete/` + id, 
             { method: "DELETE" });
+            const json = await response.json();
+            return json;
         },
         upload: async (inputFile) => {
             const formData = new FormData();
@@ -20,6 +22,7 @@ const creazioneMiddleware = () => {
             try{
                 const res = await fetch("/upload", fetchOptions);
                 const data = await res.json();
+                console.log(data);
                 
             } catch (e){
                 console.log(e)

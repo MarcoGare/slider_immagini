@@ -24,7 +24,7 @@ const database = {
             )
         `);
     },
-    insert: (url) => {
+    insert: (name) => {
         let sql=
        `INSERT INTO images (name) VALUES ('$NAME')`;
        sql = sql.replace('$NAME',name);
@@ -33,7 +33,7 @@ const database = {
     select: () => {
         const sql =
          `SELECT id, name FROM images`;
-         return executeQuery
+         return executeQuery(sql);
     },
     delete: (id) => {
         let sql=
