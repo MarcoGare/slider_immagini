@@ -28,20 +28,21 @@ const creazioneMiddleware = () => {
     };
 };
 
-const render = (images) => {
-    const tableBody = document.querySelector("#image-table tbody");
-    tableBody.innerHTML = "";
-    images.forEach(({ id, url }) => {
-        tableBody.innerHTML += `
-            <tr>
-                <td><img src="${url}" width="100"></td>
-                <td>${url}</td>
-                <td><button onclick="deleteImage(${id})" class="btn btn-danger">Elimina</button></td>
-            </tr>`;
-    });
-};
-
 const controller = async (middleware) => {
+    
+    const render = (images) => {
+        const tableBody = document.querySelector("#image-table tbody");
+        tableBody.innerHTML = "";
+        images.forEach(({ id, url }) => {
+            tableBody.innerHTML += `
+                <tr>
+                    <td><img src="${url}" width="100"></td>
+                    <td>${url}</td>
+                    <td><button onclick="deleteImage(${id})" class="btn btn-danger">Elimina</button></td>
+                </tr>`;
+        });
+    };
+    
     const inputFile = document.querySelector("#file");
     const button = document.querySelector("#button");
     button.onclick = async () => {
