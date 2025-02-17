@@ -33,6 +33,6 @@ app.get('/images', async (req, res) => {
 });
 
 const server=http.createServer(app);
-server.listen(5600, () => {
-    console.log("- Server in esecuzione su http://localhost:5600");
+server.listen(80, () => {
+    console.log("- Server in esecuzione su http://localhost:80");
 });

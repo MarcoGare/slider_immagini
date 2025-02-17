@@ -1,107 +1,105 @@
-/* style.css */
-
-/* Impostazioni di base */
 body {
     background-color: #f5f5f5;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     margin: 0;
     padding: 0;
-  }
-  
-  /* Navbar */
-  .navbar {
+}
+
+.navbar {
     background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-  }
-  
-  .navbar-brand {
+}
+
+.navbar-brand {
     font-weight: bold;
     font-size: 1.5rem;
-  }
-  
-  /* Pagine */
-  .page {
+}
+
+.page {
     padding: 20px;
-  }
-  
-  /* Carosello */
-  .carousel-item img {
+}
+
+#login,
+#private {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.carousel-item img {
     border-radius: 10px;
     object-fit: cover;
-  }
-  
-  /* Sezione Admin */
-  #tabella {
+}
+
+#tables {
     background-color: #ffffff;
     border-collapse: collapse;
     width: 100%;
-  }
-  
-  #tabella th,
-  #tabella td {
+}
+
+#tables th,
+#tables td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
     vertical-align: middle;
-  }
-  
-  #tabella th {
+}
+
+#tables th {
     background-color: #007bff;
     color: #ffffff;
-  }
-  
-  /* Input File e Bottone Upload */
-  #admin .form-control {
+}
+
+#file {
     border-radius: 5px;
     border: 1px solid #ccc;
-  }
-  
-  #upload {
+}
+
+#button {
     border-radius: 5px;
-  }
-  
-  /* Bottoni */
-  .btn {
+}
+
+.btn {
     transition: all 0.3s ease;
     border-radius: 5px;
-  }
-  
-  .btn:hover {
+}
+
+.btn:hover {
     transform: scale(1.05);
-  }
-  
-  /* Pulsante delete */
-  .btn-danger {
+}
+
+.btn-button {
     background-color: #dc3545;
     border: none;
-  }
-  
-  .btn-danger:hover {
+    color: #fff;
+}
+
+.btn-button:hover {
     background-color: #c82333;
-  }
-  
-  /* Effetto per la transizione tra le sezioni */
-  .hidden {
+}
+
+.hidden {
     display: none;
-  }
-  
-  .visible {
+}
+
+.visible {
     display: block;
-  }
-  
-  /* Ulteriori personalizzazioni per il carosello */
-  .carousel-inner {
+}
+
+.carousel-inner {
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  }
-  
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 50%;
-  }
-  
+}

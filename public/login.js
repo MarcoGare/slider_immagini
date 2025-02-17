@@ -61,8 +61,7 @@ loginButton.onclick = () => {
 };
 
 registerButton.onclick = () => {
-  register(inputName.value, inputPassword.value).then((result) => {
-  });
+  register(inputName.value, inputPassword.value).then(result) 
 };
 
 logoutButton.onclick = () => {

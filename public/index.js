@@ -49,7 +49,6 @@ const controller = async (middleware) => {
         tables.innerHTML = list.map((element)=>{
             let row = template.replace("$ID", element.id);
             row = row.replace("$URL", element.name);
-            row = row.replace("$URL", element.name);
             return row;
         }).join("\n");
         const deletebutton = document.querySelectorAll(".delete");
@@ -67,7 +66,7 @@ const controller = async (middleware) => {
     }
     const renderPraga =(list)=>{
         let html = '';
-        for (let i=0; i < list.lenght; i++){
+        for (let i=0; i < list.length; i++){
             const foto = list[i];
             let active = '';
             if (i=== 0){
@@ -93,7 +92,6 @@ const controller = async (middleware) => {
         render(list)
     })
 
-    middleware.load().then(list);
 };
 
 controller(middleware);

@@ -43,7 +43,7 @@ const database = {
        `DELETE FROM images
        WHERE ID=$ID`
        ;
-       sql = sql.replace('$id',id);
+       sql = sql.replace('$ID',id);
        return executeQuery(sql);
     }
 };
