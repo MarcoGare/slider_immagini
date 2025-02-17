@@ -1,8 +1,5 @@
 import { createNavigator } from "./navigator.js";
-import {login} from"./login.js";
 const navigator = createNavigator(document.querySelector("#container"));
-const log=login();
-const middleware= creazioneMiddleware();
 
 const creazioneMiddleware = () => {
     return{
@@ -36,6 +33,7 @@ const creazioneMiddleware = () => {
         }
     };
 };
+const middleware= creazioneMiddleware();
 const controller = async (middleware) => { 
     const inputFile = document.querySelector("#file");
     const button = document.querySelector("#button"); 
