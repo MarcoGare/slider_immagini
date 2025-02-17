@@ -2,6 +2,7 @@ import { createNavigator } from "./navigator.js";
 import {login} from"./login.js";
 const navigator = createNavigator(document.querySelector("#container"));
 const log=login();
+const middleware= creazioneMiddleware();
 
 const creazioneMiddleware = () => {
     return{
@@ -35,14 +36,37 @@ const creazioneMiddleware = () => {
         }
     };
 };
-
 const controller = async (middleware) => { 
     const inputFile = document.querySelector("#file");
     const button = document.querySelector("#button"); 
     const tables =document.getElementById("#tables")
     const praga =document.getElementById("#praga")
 
-
+    const render = (list) => {
+        const template = `
+        <tr>
+            <td><img src="$URL" style="width: 600px; height: 600px;" /></td>
+            <td> button id= "$ID" type= "button" class= "delete btn btn-button" style="background-color:blue">ELIMINA</button></td>
+        </tr>`;
+        tables.innerHTML = list.map((element)=>{
+            let row = template.replace("$ID", element.id);
+            row = row.replace("$URL", element.name);
+            row = row.replace("$URL", element.name);
+            return row;
+        }).join("\n");
+        const deletebutton = document.querySelectorAll(".delete");
+        deletebutton.forEach((button) => {
+            button.onclick = () => {
+                middleware.delete(button.id)
+                .then(
+                    () => middleware.load()
+                ).then((list) => {
+                    render(list);
+                    renderPraga(list);
+                });
+            }
+        });
+    }
     const renderPraga =(list)=>{
         let html = '';
         for (let i=0; i < list.lenght; i++){
@@ -57,19 +81,21 @@ const controller = async (middleware) => {
         }
         praga.innerHTML =html;
     };
-
     
     button.onclick = async () => {
         await middleware.upload(inputFile);
-        middleware.load().then(render);
+        const list = await middleware.load();
+        render(list);
+        renderPraga(list);
+        inputFile.value=""
     };
     
-    window.deleteImage = async (id) => {
-        await middleware.delete(id);
-        middleware.load().then(render);
-    };
+    middleware.load().then((list)=> {
+        renderPraga(list)
+        render(list)
+    })
 
-    middleware.load().then(render);
+    middleware.load().then(list);
 };
 
-controller(creazioneMiddleware());
+controller(middleware);
