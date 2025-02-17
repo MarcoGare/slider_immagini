@@ -32,18 +32,13 @@ const creazioneMiddleware = () => {
 };
 
 const controller = async (middleware) => {
+    const template = `
+    <tr>
+        <td><img src="$URL" style="width: 600px; height: 600px;" /></td>
+        <td> button id= "$ID" type= "button" class= "delete btn btn-button" style="background-color:blue">ELIMINA</button></td>
+        </tr>`;
     
-    const render = (images) => {
-        const tableBody = document.querySelector("#image-table tbody");
-        tableBody.innerHTML = "";
-        images.forEach(({ id, url }) => {
-            tableBody.innerHTML += `
-                <tr>
-                    <td><img src="${url}" width="100"></td>
-                    <td>${url}</td>
-                    <td><button onclick="deleteImage(${id})" class="btn btn-danger">Elimina</button></td>
-                </tr>`;
-        });
+    const render = (list) => {
     };
     
     const inputFile = document.querySelector("#file");
