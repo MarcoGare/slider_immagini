@@ -66,7 +66,7 @@ const controller = async (middleware) => {
     }
     const renderPraga =(list)=>{
         let html = '';
-        for (let i=0; i < list.length; i++){
+        for (let i=0; i < list.lenght; i++){
             const foto = list[i];
             let active = '';
             if (i=== 0){
@@ -92,6 +92,7 @@ const controller = async (middleware) => {
         render(list)
     })
 
+    middleware.load().then(list);
 };
 
 controller(middleware);
